@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> event registration form </title>
+        <style>
+            body
+            {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f8f9fa;
+            }
+            .form-container
+            {
+                background-color: #fff;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                width: 350px;
+            }
+            h1
+            {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333;
+            }
+            .input-box label
+            {
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+            .input-box input
+            {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+                outline: none;
+                transition: border-color 0.35 ease;
+            }
+	    .iput-box input:focus{boder-color:#007bff}
+            .submit-btn:hover
+            {
+                background-color: #0056b3;
+            }
+            .success-msg
+            {
+                display: none;
+                text-align: center;
+                color: green;
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class ="form-container">
+            <form id = "reg-form">
+                <h1>event registration</h1>
+                <div class = "input-box">
+                    <label for = "firstname">first name</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class = "input-box">
+                    <label for = "lastname">last name</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <div class = "input-box">
+                    <label for = "phno">phone number</label>
+                    <input type="text" id="phno" name="phno" pattern="\d{10}" title="phone number must be 10 digits only" required>
+                </div>
+                <button type="submit" class="submit-btn">register</button>
+                <div class="success-msg" id="successmsg">thank you for registering</div>
+            </form>
+        </div>
+        <script>
+            const form = document.getElementById('reg-form');
+            const successmsg = document.getElementById('successmsg');
+            form.addEventListener('submit',function(event)
+            {
+		event.preventDefault();
+                successmsg.style.display='block';
+                form.reset();
+            }
+        )
+        </script>
+    </body>
+</html>
